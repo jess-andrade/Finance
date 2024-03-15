@@ -11,14 +11,14 @@ import { Feather } from '@expo/vector-icons'
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
-export default function Header() {
+export default function Header({ name }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.username}>Jessica</Text>
+        <Text style={styles.username}>{name}</Text>
 
-        <TouchableOpacity activeOpacity={0.6}>
-          <Feather name='user' size={27} color='#fff' style={styles.buttonUser} />
+        <TouchableOpacity activeOpacity={0.6} style={styles.buttonUser}>
+          <Feather name='user' size={27} color='#fff' />
         </TouchableOpacity>
       </View>
     </View>
@@ -27,7 +27,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'purple',
+    backgroundColor: '#f98ea9',
     paddingTop: statusBarHeight,
     flexDirection: 'row',
     paddingStart: 16,
@@ -44,6 +44,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',
-  }
-
+  },
+  buttonUser: {
+    width: 44,
+    height: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 44 / 2,
+  },
 })
